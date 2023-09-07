@@ -5,13 +5,14 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        nombre: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        dificultad: {
+        difficulty: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -19,13 +20,17 @@ module.exports = (sequelize) => {
                 max: 5
             },
         },
-        duracion: {
+        duration: {
             type: DataTypes.TIME,
             allowNull: true
         },
-        temporada: {
-            type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"),
+        season: {
+            type: DataTypes.ENUM("Summer", "Autumn", "Winter", "Spring"),
             allowNull: false
-        }
-    })
-}
+        },
+        // countries: {
+        //   type: DataTypes.ARRAY(DataTypes.STRING(3)),
+        //   allowNull: true
+        // }   
+    }, { timestamps: false })
+};      

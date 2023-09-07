@@ -7,9 +7,10 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.STRING(3),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -17,7 +18,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    continente: {
+    continent: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -27,17 +28,16 @@ module.exports = (sequelize) => {
     },
     subregion: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     area: {
-      type: DataTypes.DECIMAL,
-      allowNull: true
+      type: DataTypes.FLOAT,
+      allowNull: true,
     },
-    poblacion: {
+    population: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
 
-
-  });
+  }, { timestamps: false});
 };
