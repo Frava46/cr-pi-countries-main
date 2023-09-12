@@ -1,11 +1,12 @@
-.div {
+body{
     width: 100%;
     height: 100%;
     display: flex;
-    font-family: 'Arial';
+    font-family: 'Times New Roman';
     font-size:x-large;
     background-image: url('../../assets/landingImage.jpg');
     background-size: 100%;
-}
-.button {
+    text-shadow: 2px 2px 4px rgba(40, 40, 40, 40);
+    /* filter: blur(3px); */
+    filter: grayscale(20%)
 }

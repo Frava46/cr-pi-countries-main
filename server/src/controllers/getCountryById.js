@@ -1,10 +1,18 @@
-const { Country } = require("../db")
+const { Country, Activity } = require("../db")
 
 const getCountryById = async (req, res) => {
     try {
         const { idPais } = req.params;//destructuro el id de la propiedad "paramas";
 
-        const finded = await Country.findOne({ where: { id: idPais } });//y lo busco en la base de datos y guardo el resultado en una una constante;
+        const finded = await Country.findByPk(idPais, {
+            include: [
+                {
+                  model: Activity,
+                  through: { attributes: []},
+                  attributes: ['name', "difficulty","duration","season"]
+                }
+            ]
+        });                                   //y lo busco en la base de datos y guardo el resultado en una una constante;
 
         res.status(200).json(finded);
     } catch (error) {
