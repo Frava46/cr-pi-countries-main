@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries } from './Components/Redux/actions';
 import Detail from './Components/Detail/Detail';
-import Form from './Components/Form/Form';
+import CreateAct from './Components/CreateAct/createAct';
 
 function App() {
     
@@ -21,7 +21,7 @@ function App() {
         <Route path = "/" element= {<Landing/>}/>
         <Route path= "/home" element= {<Home />}/>
         <Route path= "/detail/:id" element= {<Detail/>}/>
-        <Route path= "/Activity" element= {<Form/>}/>
+        <Route path= "/newActivity" element= {<CreateAct/>}/>
       </Routes>
     </div>
 

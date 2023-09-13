@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getCountriesByName } from "../Redux/actions";
 
-const SearchBar = ({onSearch}) => {
-    // const dispatch = useDispatch()
+const SearchBar = () => {
+    const dispatch = useDispatch()
+
+
+    const onSearch = (name) => {          //onSearch que dispacha la action que pedira al back un pais por su nombre
+        dispatch(getCountriesByName(name))
+      }
 
 const handleChange = (event) => {
     setName(event.target.value);

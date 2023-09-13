@@ -8,5 +8,5 @@ body{
     background-size: 100%;
     text-shadow: 2px 2px 4px rgba(40, 40, 40, 40);
     /* filter: blur(3px); */
-    filter: grayscale(20%)
+    filter: grayscale(20%);
 }

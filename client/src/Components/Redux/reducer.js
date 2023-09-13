@@ -23,29 +23,19 @@ switch(action.type) {
     case GET_BY_ID   :
         return {...state, countryDetail:action.payload};
 
-    case ORDER:
-
-        const Order = state.countriesAux.sort((a, b)=> a.name.localeCompare(b.name));
-
-        if(action.payload === "A-Z") {
-            // console.log(Order);
-            return {...state, countriesAux: Order}
-        } 
-        else if(action.payload === "Z-A"){
-            const orderRev = Order.reverse()
-            // console.log(orderRev)
-        return {...state, countriesAux: orderRev}
-    };
-    //    if(action.payload === "Ordern't") {
-    //         const allCountries = state.allCountries;
-    //         const countriesDisordered = [];
-    //         allCountries.map((country)=> {
-    //             if(state.countriesAux.includes( country)) {
-    //                 countriesDisordered.push(country);
-    //    }})
-    //         return {...state, countriesAux: countriesDisordered}
-    //     };
-
+        case ORDER:
+            let now = [...state.countriesAux]
+            const OrderNow = now.sort((a, b) => a.name.localeCompare(b.name))
+            const disorder = ()=> Math.random() - 0.5;
+            
+            return  {
+                ...state,
+                countriesAux: 
+                action.payload === "A-Z"
+                ? OrderNow
+                : action.payload === "Z-A"?OrderNow.reverse()
+                :now.sort(disorder)
+          };
     default: return {...state} //caso de default, devolver la copia del estado.
 }
 }

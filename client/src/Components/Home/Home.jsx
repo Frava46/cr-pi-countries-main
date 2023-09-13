@@ -13,32 +13,24 @@ const Home = () => {
   
   
   const dispatch = useDispatch();
-  
-  
-  
-  
-  const onSearch = (name) => {       //onSearch se pasara por props a Nav y de Nav a SearchBar;
-    dispatch(getCountriesByName(name))
-  }
 
   const handleOrder = (event) => {
     const value = event.target.value;
     dispatch(orderCountries(value))
    
   }
-  // console.log(countriesAux);
   
-  // useEffect(() => {
-  //   dispatch(getCountries());
+  useEffect(() => {
+    dispatch(getCountries());
 
-  // }, [dispatch]);
+  }, [dispatch]);
   
   return (
     <div>
       <h1>Home</h1>
-      <Nav onSearch={onSearch} />
+      <Nav/>
       <select onChange={handleOrder}>
-        <option>Order</option>
+        <option>Ordern't</option>
         <option value="A-Z">A-Z</option>
         <option value="Z-A">Z-A</option>
       </select>

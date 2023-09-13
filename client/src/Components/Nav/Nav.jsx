@@ -2,15 +2,15 @@ import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 
 
-const Nav = ({onSearch}) => {
+const Nav = () => {
 
 
     return (
     <nav>
 
-<SearchBar onSearch={onSearch}/>
+<SearchBar />
 
-<Link to = "/Activity"> <button>Create Activity</button> </Link>
+<Link to = "/newActivity"> <button>Create Activity</button> </Link>
 
     </nav>)
 

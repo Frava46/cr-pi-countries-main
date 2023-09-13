@@ -24,8 +24,8 @@ const Detail = () =>{
             <h2>Capital: {countryDetail?.capital}</h2>
             <h2>Continent: {countryDetail?.continent}</h2>
             <h2>Subregion: {countryDetail?.subregion}</h2>
-            <h2>Area: {`${countryDetail?.area}`}</h2>
-            <h2>Population: {countryDetail?.population}</h2>
+            <h2>Area: {`${countryDetail?.area?.toLocaleString()}`} km²</h2>
+            <h2>Population: {countryDetail?.population?.toLocaleString()}</h2>
          </div>
     )
 }
