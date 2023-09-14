@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER,POST_ACTIVITY } from "./action-types"
+import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY } from "./action-types"
 
 
 let initialState = {
@@ -53,8 +53,11 @@ const reducer = (state = initialState, action) => {
                         : state.allCountries
             }
 
-        case POST_ACTIVITY :
-            return{...state,Activities:[...state.Activities, action.payload]};
+        case POST_ACTIVITY:
+            return { ...state, Activities: [...state.Activities, action.payload] };
+
+        case GET_ACTIVITY:
+            return { ...state, Activities: action.payload };
 
         default: return { ...state } //caso de default, devolver la copia del estado.
     }

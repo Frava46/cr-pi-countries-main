@@ -26,6 +26,9 @@ const Detail = () =>{
             <h2>Subregion: {countryDetail?.subregion}</h2>
             <h2>Area: {`${countryDetail?.area?.toLocaleString()}`} km²</h2>
             <h2>Population: {countryDetail?.population?.toLocaleString()}</h2>
+            {!countryDetail?.Activities.length
+            ?<h3>Has no Activities</h3>
+            :countryDetail?.Activities.map((act)=>(<h3>Activities: {act.name}</h3>))}
          </div>
     )
 }

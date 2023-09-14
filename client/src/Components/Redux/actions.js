@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY} from "./action-types"
+import {GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY} from "./action-types"
 
 
 
@@ -71,6 +71,19 @@ export const postActivity = (activity) => {
          // console.log(data)
          return dispatch({type: POST_ACTIVITY, payload: data});
       } catch(error) {
+         console.log(error.message);
+      }
+   }
+};
+
+export const getActivity = ()=> {
+
+   return async(dispatch) => {
+      try{
+         const {data} = await axios.get("http://localhost:3001/activities");
+
+         return dispatch({type: GET_ACTIVITY, payload: data})  
+      }catch(error) {
          console.log(error.message);
       }
    }

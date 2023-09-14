@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../Redux/actions";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
+import style from "./Cards.module.css"
 
 const Cards = () => {
     const countriesAux = useSelector((state) => state.countriesAux);
@@ -16,7 +17,7 @@ const Cards = () => {
     return (
         <div>
             <Paginado pagina={pagina} setPagina={setPagina} maximo={Math.ceil(countriesAux.length / porPagina)} />
-
+            <div className= {style.divCard}>
             {typeof countriesAux !== "string" ? countriesAux
                 .slice(startIndex, endIndex)
                 .map((country, index) => (
@@ -28,6 +29,7 @@ const Cards = () => {
                         continent={country?.continent}
                     />
                 )): <h2>{countriesAux}</h2>}
+                </div>
         </div>
     );
 };

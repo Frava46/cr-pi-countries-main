@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards"
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { orderCountries, getCountries, getCountriesByName, getAux, filterCountries } from "../Redux/actions";
-// import SearchBar from "../SearchBar/SearchBar";
 import Nav from "../Nav/Nav";
+import style from './home.module.css';
 
 const Home = () => {
   
@@ -29,8 +28,8 @@ const Home = () => {
   }, []);
   
   return (
-    <div>
-      <h1>Home</h1>
+    <div className={style.container}>
+      <h1>🏡</h1>
       <Nav/>
       <select onChange={handleOrder}>
         <option>Ordern't</option>

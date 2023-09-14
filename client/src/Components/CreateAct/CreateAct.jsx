@@ -16,7 +16,7 @@ const CreateAct = () => {
         season: "",
         duration: "",
         countries: []
-    })
+    });
     
     useEffect(() => {
         dispatch(getCountries());

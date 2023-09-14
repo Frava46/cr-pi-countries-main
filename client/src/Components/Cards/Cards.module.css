@@ -1,5 +1,12 @@
-.div {
-    background-color: rgba(62, 0, 120, 0.552);
-    display: inline-block;
-  margin-right: 10px;
-}
+.divCard {
+  /* background-color: rgba(0, 0, 0, 0.525); */
+  display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 26px;
+      grid-row-gap: 16px;
+      width: 100%;
+      justify-content: center;
+      align-content: center;
+
+  }
