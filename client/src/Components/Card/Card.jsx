@@ -8,11 +8,11 @@ const Card = ({id, flagImg, name, continent})=> {
 
 return(
     <div>
-        <img src= {flagImg}/>
+        <Link to ={`/detail/${id}`}>
+        <img src= {flagImg}/></Link>
+        
         <h2>Name:{name}</h2>
         <h3>Continent: {continent}</h3>
-        <Link to ={`/detail/${id}`}>
-            <button>See more</button></Link>
     </div>
 )
 }

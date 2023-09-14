@@ -1,6 +1,6 @@
 import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getById } from "../Redux/actions";
 
 
@@ -18,7 +18,7 @@ const Detail = () =>{
 
     return (
         <div>
-            <h1>Detail</h1>
+            <Link to= "/home"><button>⬅back</button></Link>
             <img src= {countryDetail?.flagImg} alt= ""></img>
             <h2>Name: {countryDetail?.name}</h2>
             <h2>Capital: {countryDetail?.capital}</h2>

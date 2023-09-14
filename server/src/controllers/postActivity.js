@@ -8,7 +8,7 @@ const postActivity = async (req, res) => {
         if(!name ||!difficulty || !season) {
            throw new Error("insufficient information")
         }
-        console.log(countries)
+
         let newActivity = await Activity.create({
             name,
             difficulty,
@@ -19,10 +19,7 @@ const postActivity = async (req, res) => {
             
             await newActivity.addCountries(countries);
 
-       
-
-        
-        //? Obtener la actividad con la relacion a los paises asociados
+        //para obtener la actividad con la relacion a los paises asociados
         const activityCountry = await Activity.findByPk(newActivity.id, {
             include: [
               {

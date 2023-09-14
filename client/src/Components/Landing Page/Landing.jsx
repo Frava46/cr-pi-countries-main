@@ -7,8 +7,8 @@ const Landing = () => {
     <div>
         <h3>Welcome to:</h3>
         <h1>Countries Web</h1>
-        <h4>by Franco</h4>
-        <Link to="/home">
+        <p>by Franco</p>
+        <Link  to="/home">
             <button>Enter</button>
         </Link>
     </div>)

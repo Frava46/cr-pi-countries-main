@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Paginado = ({pagina, setPagina, maximo}) => {
         // console.log(pagina, setPagina, maximo)
-        const[input, setInput] = useState(1)
+        const[input, setInput] = useState(1);
 
         const nextPage= () =>  {
             setInput(parseInt(input) +1);
