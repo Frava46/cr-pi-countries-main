@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards"
 import { useDispatch, useSelector } from "react-redux";
-import { orderCountries, getCountries, getCountriesByName, getAux, filterCountries } from "../Redux/actions";
+import { orderCountries, getCountries, getCountriesByName, getAux, filterCountries, orderPupulation } from "../Redux/actions";
 import Nav from "../Nav/Nav";
 import style from './home.module.css';
 
@@ -15,6 +15,10 @@ const Home = () => {
     dispatch(orderCountries(value))
    
   };
+  const orderPopulation = (event)=> {
+    const value = event.target.value;
+    dispatch(orderPupulation(value))
+  }
 
   const handlerFilter = (event)=> {
     const value = event.target.value;
@@ -31,6 +35,12 @@ const Home = () => {
     <div className={style.container}>
       <h1>🏡</h1>
       <Nav/>
+      <select onChange={orderPopulation}>
+        <option value="all">Population</option>
+        <option value="min-max">min-max</option>
+        <option value="max-min">max-min</option>
+      </select>
+
       <select onChange={handleOrder}>
         <option>Ordern't</option>
         <option value="A-Z">A-Z</option>

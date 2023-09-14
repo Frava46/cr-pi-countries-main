@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY } from "./action-types"
+import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY, ORDER_PUPULATION } from "./action-types"
 
 
 let initialState = {
@@ -58,6 +58,21 @@ const reducer = (state = initialState, action) => {
 
         case GET_ACTIVITY:
             return { ...state, Activities: action.payload };
+
+        case ORDER_PUPULATION:
+            let noww = [...state.countriesAux]
+            const OrderPopulation = noww.sort((a, b) => a.population - b.population);
+            const disorderPopulation = () => Math.random() - 0.5;
+
+            return {
+                ...state,
+                countriesAux:
+                    action.payload === "min-max"
+                        ? OrderPopulation
+                        : action.payload === "max-min" ? OrderPopulation.reverse()
+                            : noww.sort(disorderPopulation)
+            };
+
 
         default: return { ...state } //caso de default, devolver la copia del estado.
     }

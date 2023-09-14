@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY} from "./action-types"
+import {GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY, ORDER_PUPULATION} from "./action-types"
 
 
 
@@ -87,4 +87,10 @@ export const getActivity = ()=> {
          console.log(error.message);
       }
    }
-}
+};
+
+export const orderPupulation = (value) => {
+   return (dispatch) => {
+      return dispatch({type: ORDER_PUPULATION, payload: value});
+   }
+};

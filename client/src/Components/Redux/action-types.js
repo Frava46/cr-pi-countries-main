@@ -6,3 +6,4 @@ export const GET_AUX = "GET_AUX";
 export const FILTER = "FILTER";
 export const POST_ACTIVITY = "POST_ACT";
 export const GET_ACTIVITY = "GET_ACTIVITY";
+export const ORDER_PUPULATION = "ORDER_PULATION";
