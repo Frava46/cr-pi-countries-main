@@ -5,18 +5,12 @@ import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import style from "./Cards.module.css"
 
-const Cards = () => {
+const Cards = ({pagina, setPagina, porPagina, startIndex, endIndex, input, setInput}) => {
     const countriesAux = useSelector((state) => state.countriesAux);
-    const [pagina, setPagina] = useState(1);
-    const porPagina = 10; // numero de elementos por pagina
-
-    // para calcular el indice de inicio y fin para la página actual
-    const startIndex = (pagina - 1) * porPagina;
-    const endIndex = startIndex + porPagina;
 
     return (
         <div>
-            <Paginado pagina={pagina} setPagina={setPagina} maximo={Math.ceil(countriesAux.length / porPagina)} />
+            <Paginado pagina={pagina} setPagina={setPagina} maximo={Math.ceil(countriesAux.length / porPagina)} input={input} setInput={setInput}/>
             <div className= {style.divCard}>
             {typeof countriesAux !== "string" ? countriesAux
                 .slice(startIndex, endIndex)

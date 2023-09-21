@@ -7,3 +7,5 @@ export const FILTER = "FILTER";
 export const POST_ACTIVITY = "POST_ACT";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 export const ORDER_PUPULATION = "ORDER_PULATION";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+export const GET_2_ACT = "GET_2_ACT";

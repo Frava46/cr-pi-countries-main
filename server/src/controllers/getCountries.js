@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Country } = require('../db.js');
+const { Country, Activity } = require('../db.js');
 
 
 const getCountries = async (req, res) => {
@@ -21,7 +21,15 @@ const getCountries = async (req, res) => {
 
         })
 
-        const allCountries = await Country.findAll()
+        const allCountries = await Country.findAll({
+            include: [
+                {
+                  model: Activity,
+                  through: { attributes: []},
+                  attributes: ['name', "difficulty","duration","season"]
+                }
+            ]
+        })
         return res.status(200).json(allCountries);
     } catch (error) {
         return res.status(400).json(error.message)

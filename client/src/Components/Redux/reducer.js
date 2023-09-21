@@ -1,4 +1,5 @@
-import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY, ORDER_PUPULATION } from "./action-types"
+import { all } from "axios";
+import { GET_COUNTRIES, GET_BY_NAME, GET_BY_ID, ORDER, GET_AUX, FILTER, POST_ACTIVITY, GET_ACTIVITY, ORDER_PUPULATION, FILTER_BY_ACTIVITY } from "./action-types"
 
 
 let initialState = {
@@ -73,6 +74,16 @@ const reducer = (state = initialState, action) => {
                             : noww.sort(disorderPopulation)
             };
 
+        case FILTER_BY_ACTIVITY:
+            const countryActivities = state.allCountries.filter((pais) => {
+                return pais.Activities.some((actividad) => actividad.season === action.payload);
+              });
+              return {
+                ...state,
+                countriesAux: countryActivities.length
+                ?countryActivities
+                :`There are no countries with activities to do in ${action.payload}`
+              }
 
         default: return { ...state } //caso de default, devolver la copia del estado.
     }

@@ -8,7 +8,15 @@ const getByName = async (req, res) => {
 
         let nametoLower = name.toLowerCase();
 
-        const allCountries = await Country.findAll();
+        const allCountries = await Country.findAll({
+            include: [
+                {
+                  model: Activity,
+                  through: { attributes: []},
+                  attributes: ['name', "difficulty","duration","season"]
+                }
+            ]
+        });
         
         const filteredCountries = allCountries.filter((country) => {
 

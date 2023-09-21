@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, orderCountries, getCountriesByName, postActivity } from "../Redux/actions";
+import { getCountries, orderCountries, getCountriesByName, postActivity, getAux } from "../Redux/actions";
 import validation from "./validation";
 import { Link } from "react-router-dom";
 import style from "./CreateAct.module.css";
@@ -8,8 +8,8 @@ import style from "./CreateAct.module.css";
 
 const CreateAct = () => {
     const dispatch = useDispatch()
-
-
+    
+    
     const [activity, setActivity] = useState({
         name: "",
         difficulty: 0,
@@ -17,21 +17,21 @@ const CreateAct = () => {
         duration: "",
         countries: []
     });
-
+    
     useEffect(() => {
         dispatch(getCountries());
     }, [dispatch])
-
+    
     const [errors, setErrors] = useState({});
-
-
+    
+    
     const handleChange = (event) => {
         const property = event.target.name;
         const value = event.target.value;
-
+        
         // Condicional de si existe un pais, guardarlo en mi array de countries
         if (property === 'countries') {
-
+            
             if (activity.countries.length >= 10 || value === "") {
                 return;
             }
@@ -39,12 +39,12 @@ const CreateAct = () => {
             setActivity({
                 ...activity,
                 countries: activity.countries.includes(value)
-                    ? activity.countries
-                    : [...activity.countries, value]
+                ? activity.countries
+                : [...activity.countries, value]
             });
             setErrors(validation({ ...activity }))
-
-
+            
+            
         } else if (property === "difficulty") {
             setActivity({ ...activity, difficulty: parseInt(value) })
             setErrors(validation({ ...activity, difficulty: parseInt(value) }))
@@ -53,23 +53,22 @@ const CreateAct = () => {
             setActivity({ ...activity, [property]: value });
             setErrors(validation({ ...activity, [property]: value }))
         }
-
-
+        
+        
     };
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(postActivity(activity))
         window.alert("The activity was created succesfully")
     };
-
-
-    const countriesAux = useSelector((state) => state.countriesAux);
-    const Activities = useSelector((state) => state.Activities);
-    console.log(Activities)
-
+    
+    const allCountries = useSelector((state) => state.allCountries);
+    // const Activities = useSelector((state) => state.Activities);
+    // console.log(Activities)
+    
     return (
-        <div>
+        <div className={style.div}>
             <Link to="/home"><button className={style.back_button}>⬅back</button></Link>
 
             <form>
@@ -114,7 +113,7 @@ const CreateAct = () => {
                     <option disabled value="">Select Countries </option>
                     {
                         //* mapeo de los paises , para mostrar todas las opciones en el select
-                        countriesAux?.map((pais) => (
+                        allCountries?.map((pais) => (
                             <option key={pais.id} value={pais.id}>
                                 {pais.name}
                             </option>
