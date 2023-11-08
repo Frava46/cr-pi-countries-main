@@ -1,11 +1,11 @@
 const axios = require('axios');
-const { Country, Activity } = require('../db.js');
+const { Country, Activity, } = require('../db.js');
 
 
 const getCountries = async (req, res) => {
     try {
         const { data } = await axios.get("http://localhost:5000/countries");
-
+        
         const mapingCountries = data.map(async(data) => {
 
              await Country.findOrCreate({where:{
@@ -30,6 +30,8 @@ const getCountries = async (req, res) => {
                 }
             ]
         })
+
+        // const allMovies = await Movies.findAll();
         return res.status(200).json(allCountries);
     } catch (error) {
         return res.status(400).json(error.message)
