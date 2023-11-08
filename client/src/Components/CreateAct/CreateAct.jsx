@@ -66,6 +66,18 @@ const CreateAct = () => {
     const allCountries = useSelector((state) => state.allCountries);
     // const Activities = useSelector((state) => state.Activities);
     // console.log(Activities)
+    let CountriesOrder = allCountries.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+      
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
     
     return (
         <div className={style.div}>
@@ -113,7 +125,7 @@ const CreateAct = () => {
                     <option disabled value="">Select Countries </option>
                     {
                         //* mapeo de los paises , para mostrar todas las opciones en el select
-                        allCountries?.map((pais) => (
+                        CountriesOrder?.map((pais) => (
                             <option key={pais.id} value={pais.id}>
                                 {pais.name}
                             </option>
