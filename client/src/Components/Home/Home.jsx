@@ -42,12 +42,6 @@ const Home = () => {
     dispatch(filterByActivity(value))
   };
 
-  const handlerButton = async () => {
-    const toDelete = Activities[Activities.length - 1]
-    const { data } = await axios.delete(`http://localhost:3001/activities/toDelete?name=${toDelete}`)
-    console.log(data)
-  };
-
   useEffect(() => {
     dispatch(getCountries());
 
@@ -55,7 +49,7 @@ const Home = () => {
   
   return (
     <div className={style.container}>
-      <h1>🏡</h1>
+      <h1>HOME</h1>
       <Nav />
       <select onChange={orderPopulation}>
         <option value="all">Population</option>
@@ -95,8 +89,6 @@ const Home = () => {
         endIndex={endIndex}
         input={input}
         setInput={setInput} />
-
-      <button onClick={handlerButton}>Traer</button>
     </div>
   )
 }

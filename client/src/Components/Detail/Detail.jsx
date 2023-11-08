@@ -20,6 +20,7 @@ const Detail = () =>{
     return (
         <div className={style.div}>
             <Link to= "/home"><button className={style.back_button}>⬅back</button></Link>
+            <br></br>
             <img src= {countryDetail?.flagImg} alt= ""></img>
             <h2>Name: {countryDetail?.name}</h2>
             <h2>Capital: {countryDetail?.capital}</h2>

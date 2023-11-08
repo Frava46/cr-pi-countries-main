@@ -26,6 +26,7 @@
     font-size: 2rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+   
     /* Sombreado oscuro */
 }
 
@@ -38,7 +39,7 @@
     /* Margen superior e inferior */
     font-family: 'Arial', sans-serif;
     /* Fuente de texto (puedes cambiarla) */
-    background-image: linear-gradient(45deg, #ccffd3, #cc99ff);
+    background-image: linear-gradient(45deg, #000000,#0066ff);
     
     /* Hacer el texto transparente */
     padding: 5px 10px;
@@ -63,7 +64,7 @@
 }
 
 .button {
-    background-color: #1ac1a8;
+    background-color: #00aaff;
     color: white;
     padding: 15px 30px;
     border: none;

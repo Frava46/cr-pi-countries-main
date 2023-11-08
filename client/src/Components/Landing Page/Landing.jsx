@@ -9,11 +9,11 @@ const Landing = () => {
       <h3 className={style.title}>Welcome to:</h3>
 
       <h1 className={style.heading} >Countries Web</h1>
-      <p className={style.description}>by Franco</p>
+      <p className={style.description}>by Franco Valenzuela</p>
 
 
       <Link to="/home">
-        <button className={style.button}>Enter</button>
+        <button className={style.button}>Join</button>
       </Link>
       </div>
     </div>
